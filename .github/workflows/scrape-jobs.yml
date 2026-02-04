@@ -29,12 +29,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraper
-        env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           python main.py scrape
           python main.py match
-          python main.py generate
 
       - name: Commit updated data
         run: |
