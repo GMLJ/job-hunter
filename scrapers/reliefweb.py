@@ -1,27 +1,38 @@
-"""ReliefWeb job scraper using their API."""
+"""ReliefWeb job scraper using RSS feeds."""
 
+import re
 from datetime import datetime
 from typing import Optional
+from urllib.parse import quote
+
+import feedparser
+from bs4 import BeautifulSoup
 
 from .base import BaseScraper, Job
 
 
 class ReliefWebScraper(BaseScraper):
-    """Scraper for ReliefWeb jobs API."""
+    """Scraper for ReliefWeb jobs via RSS."""
 
     name = "reliefweb"
-    base_url = "https://api.reliefweb.int/v1/jobs"
+    base_url = "https://reliefweb.int"
 
-    # Target countries
-    COUNTRIES = ["Ethiopia", "Kenya", "Somalia", "South Sudan", "Uganda"]
+    # RSS feed URLs for target countries
+    RSS_FEEDS = [
+        "https://reliefweb.int/jobs/rss.xml?search=country.exact%3A%22Ethiopia%22",
+        "https://reliefweb.int/jobs/rss.xml?search=country.exact%3A%22Kenya%22",
+        "https://reliefweb.int/jobs/rss.xml?search=country.exact%3A%22Somalia%22",
+        "https://reliefweb.int/jobs/rss.xml?search=country.exact%3A%22South%20Sudan%22",
+        "https://reliefweb.int/jobs/rss.xml?search=country.exact%3A%22Uganda%22",
+    ]
 
     def scrape(self) -> list[Job]:
-        """Scrape jobs from ReliefWeb API."""
+        """Scrape jobs from ReliefWeb RSS feeds."""
         jobs = []
 
-        for country in self.COUNTRIES:
-            country_jobs = self._scrape_country(country)
-            jobs.extend(country_jobs)
+        for feed_url in self.RSS_FEEDS:
+            feed_jobs = self._scrape_feed(feed_url)
+            jobs.extend(feed_jobs)
 
         # Remove duplicates based on ID
         seen = set()
@@ -33,92 +44,82 @@ class ReliefWebScraper(BaseScraper):
 
         return unique_jobs
 
-    def _scrape_country(self, country: str) -> list[Job]:
-        """Scrape jobs for a specific country."""
+    def _scrape_feed(self, feed_url: str) -> list[Job]:
+        """Scrape jobs from a single RSS feed."""
         jobs = []
 
-        params = {
-            "appname": "job-hunter",
-            "limit": 50,
-            "filter[field]": "country.name",
-            "filter[value]": country,
-            "sort[]": "date:desc",
-            "fields[include][]": [
-                "title", "body", "url", "source", "date",
-                "country", "city", "type", "experience",
-                "career_categories"
-            ],
-        }
-
         try:
-            response = self.fetch(f"{self.base_url}?appname=job-hunter&limit=50&filter[field]=country.name&filter[value]={country}&sort[]=date:desc")
-            data = response.json()
+            # Use session to fetch with proper headers
+            response = self.fetch(feed_url)
+            feed = feedparser.parse(response.text)
 
-            for item in data.get("data", []):
-                job = self._parse_job(item)
+            for entry in feed.entries[:30]:  # Limit per feed
+                job = self._parse_entry(entry)
                 if job:
                     jobs.append(job)
 
         except Exception as e:
-            print(f"[{self.name}] Error scraping {country}: {e}")
+            print(f"[{self.name}] Error scraping feed: {e}")
 
         return jobs
 
-    def _parse_job(self, item: dict) -> Optional[Job]:
-        """Parse a job from API response."""
+    def _parse_entry(self, entry) -> Optional[Job]:
+        """Parse a job from RSS entry."""
         try:
-            fields = item.get("fields", {})
-
-            title = fields.get("title", "")
-            url = fields.get("url", "")
+            title = entry.get("title", "")
+            url = entry.get("link", "")
 
             if not title or not url:
                 return None
 
+            # Parse description HTML
+            description_html = entry.get("description", "")
+            soup = BeautifulSoup(description_html, "lxml")
+
             # Extract organization
-            source = fields.get("source", [])
-            organization = source[0].get("name", "Unknown") if source else "Unknown"
+            org_elem = soup.find("div", class_="tag source")
+            organization = "Unknown"
+            if org_elem:
+                org_text = org_elem.get_text()
+                if "Organization:" in org_text:
+                    organization = org_text.replace("Organization:", "").strip()
 
             # Extract location
-            countries = fields.get("country", [])
-            cities = fields.get("city", [])
-            location_parts = []
-            if cities:
-                location_parts.extend([c.get("name", "") for c in cities])
-            if countries:
-                location_parts.extend([c.get("name", "") for c in countries])
-            location = ", ".join(filter(None, location_parts)) or "Not specified"
+            country_elem = soup.find("div", class_="tag country")
+            location = ""
+            if country_elem:
+                loc_text = country_elem.get_text()
+                if "Countries:" in loc_text:
+                    location = loc_text.replace("Countries:", "").strip()
+                elif "Country:" in loc_text:
+                    location = loc_text.replace("Country:", "").strip()
 
-            # Extract description
-            description = fields.get("body", "") or fields.get("body-html", "") or ""
+            # Extract deadline
+            deadline_elem = soup.find("div", class_="date closing")
+            deadline = ""
+            if deadline_elem:
+                deadline_text = deadline_elem.get_text()
+                if "Closing date:" in deadline_text:
+                    deadline = deadline_text.replace("Closing date:", "").strip()
 
-            # Extract dates
-            date_info = fields.get("date", {})
-            posted_date = date_info.get("created", "")
-            deadline = date_info.get("closing", "")
+            # Get full description text
+            description = soup.get_text(separator="\n", strip=True)
 
-            # Extract job type
-            job_types = fields.get("type", [])
-            job_type = job_types[0].get("name", "") if job_types else ""
-
-            # Extract experience
-            experience = fields.get("experience", [])
-            experience_required = experience[0].get("name", "") if experience else ""
+            # Posted date
+            posted_date = entry.get("published", "")
 
             return Job(
                 id=Job.generate_id(url, title),
                 title=title,
                 organization=organization,
-                location=location,
-                description=description[:5000],  # Limit description length
+                location=location or "Not specified",
+                description=description[:5000],
                 url=url,
                 source=self.name,
                 posted_date=posted_date,
                 deadline=deadline,
-                job_type=job_type,
-                experience_required=experience_required,
             )
 
         except Exception as e:
-            print(f"[{self.name}] Error parsing job: {e}")
+            print(f"[{self.name}] Error parsing entry: {e}")
             return None

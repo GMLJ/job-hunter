@@ -58,9 +58,8 @@ class BaseScraper(ABC):
     def __init__(self):
         self.session = requests.Session()
         self.session.headers.update({
-            "User-Agent": config.USER_AGENT,
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.5",
+            "User-Agent": "curl/7.79.1",
+            "Accept": "*/*",
         })
         self._last_request_time = 0
 
