@@ -20,7 +20,6 @@ from pathlib import Path
 import config
 from scrapers import get_all_scrapers, Job
 from matcher import JobScorer, CVProfile
-from generator import CoverLetterGenerator
 from notifier import EmailNotifier
 
 
@@ -146,6 +145,12 @@ def cmd_generate():
     print("=" * 60)
     print("GENERATING COVER LETTERS")
     print("=" * 60)
+
+    try:
+        from generator import CoverLetterGenerator
+    except ImportError:
+        print("Cover letter generation not available. Install google-generativeai.")
+        return []
 
     matches = load_matches()
     if not matches:
@@ -290,6 +295,12 @@ def cmd_apply(search_term: str = None):
     print(f"  Score: {job.score}%")
     print(f"  URL: {job.url}")
     print()
+
+    try:
+        from generator import CoverLetterGenerator
+    except ImportError:
+        print("Cover letter generation not available. Install google-generativeai.")
+        return None
 
     generator = CoverLetterGenerator()
     path = generator.generate_and_save(job)
