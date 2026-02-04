@@ -55,7 +55,7 @@ LOCATION_SCORES = {
 }
 
 # Gemini API settings
-GEMINI_MODEL = "gemini-1.5-flash-latest"
+GEMINI_MODEL = "gemini-pro"
 MAX_COVER_LETTERS_PER_RUN = 10
 
 # Salary filtering
