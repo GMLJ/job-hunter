@@ -18,7 +18,7 @@ APPLIED_FILE = DATA_DIR / "applied.json"
 CV_PROFILE_FILE = DATA_DIR / "cv_profile.json"
 
 # API Keys (from environment/GitHub Secrets)
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY", "")
 EMAIL_TO = os.getenv("EMAIL_TO", "")
 EMAIL_FROM = os.getenv("EMAIL_FROM", "jobhunter@noreply.com")
@@ -54,8 +54,8 @@ LOCATION_SCORES = {
     "global": 60,
 }
 
-# Claude API settings
-CLAUDE_MODEL = "claude-3-haiku-20240307"
+# Gemini API settings
+GEMINI_MODEL = "gemini-1.5-flash"
 MAX_COVER_LETTERS_PER_RUN = 10
 
 # Salary filtering

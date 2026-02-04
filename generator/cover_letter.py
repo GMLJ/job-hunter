@@ -1,11 +1,11 @@
-"""Cover letter generator using Claude API."""
+"""Cover letter generator using Google Gemini API."""
 
 import json
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
-import anthropic
+import google.generativeai as genai
 
 import config
 from scrapers.base import Job
@@ -13,21 +13,22 @@ from matcher.profile import CVProfile
 
 
 class CoverLetterGenerator:
-    """Generate tailored cover letters using Claude API."""
+    """Generate tailored cover letters using Google Gemini API."""
 
     def __init__(self, profile: Optional[CVProfile] = None):
         """Initialize with CV profile."""
         self.profile = profile or CVProfile.load()
-        self.client = None
-        if config.ANTHROPIC_API_KEY:
-            self.client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
+        self.model = None
+        if config.GOOGLE_API_KEY:
+            genai.configure(api_key=config.GOOGLE_API_KEY)
+            self.model = genai.GenerativeModel(config.GEMINI_MODEL)
 
         # Ensure output directory exists
         self.output_dir = config.DATA_DIR / "cover_letters"
         self.output_dir.mkdir(exist_ok=True)
 
     def _get_prompt(self, job: Job) -> str:
-        """Generate the prompt for Claude."""
+        """Generate the prompt for Gemini."""
         return f"""You are a professional cover letter writer. Write a compelling cover letter for the following job application.
 
 ## Candidate Profile
@@ -71,20 +72,13 @@ Start directly with "Dear Hiring Manager," or "Dear [Position] Selection Committ
 
     def generate(self, job: Job) -> Optional[str]:
         """Generate a cover letter for a job."""
-        if not self.client:
-            print("[CoverLetter] No API key configured, skipping generation")
+        if not self.model:
+            print("[CoverLetter] No Google API key configured, skipping generation")
             return None
 
         try:
-            message = self.client.messages.create(
-                model=config.CLAUDE_MODEL,
-                max_tokens=1024,
-                messages=[
-                    {"role": "user", "content": self._get_prompt(job)}
-                ]
-            )
-
-            cover_letter = message.content[0].text
+            response = self.model.generate_content(self._get_prompt(job))
+            cover_letter = response.text
             return cover_letter
 
         except Exception as e:

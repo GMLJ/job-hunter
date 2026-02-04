@@ -30,7 +30,7 @@ jobs:
 
       - name: Run scraper
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           python main.py scrape
           python main.py match
