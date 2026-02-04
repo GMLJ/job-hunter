@@ -1,0 +1,105 @@
+{
+  "name": "Andre Eylettens",
+  "target_roles": [
+    "Program Director",
+    "Program Manager",
+    "Country Director",
+    "Head of Mission",
+    "Head of Programs",
+    "Country Representative",
+    "M&E Specialist",
+    "Consultant",
+    "Chief of Party",
+    "Deputy Country Director",
+    "Project Manager",
+    "Operations Manager"
+  ],
+  "target_locations": [
+    "Ethiopia",
+    "Kenya",
+    "East Africa",
+    "Remote",
+    "Somalia",
+    "South Sudan",
+    "Uganda",
+    "Tanzania"
+  ],
+  "years_experience": 10,
+  "skills": [
+    "EU-funded program management",
+    "ECHO compliance",
+    "Consortium management",
+    "Humanitarian coordination",
+    "Donor reporting",
+    "GIS/mapping",
+    "Team management",
+    "Stakeholder engagement",
+    "Budget management",
+    "Proposal writing",
+    "Monitoring and evaluation",
+    "Results-based management",
+    "Strategic planning",
+    "Capacity building",
+    "Partnership development",
+    "Risk management",
+    "Logframe development",
+    "Theory of change"
+  ],
+  "certifications": [
+    "PMP"
+  ],
+  "languages": [
+    "French",
+    "English",
+    "Spanish",
+    "Amharic"
+  ],
+  "sectors": [
+    "Humanitarian",
+    "Development",
+    "Migration",
+    "Protection",
+    "Urban development",
+    "DDR",
+    "Livelihoods",
+    "Food security",
+    "WASH",
+    "Education",
+    "Health"
+  ],
+  "organizations_worked": [
+    "Expertise France",
+    "Médecins du Monde",
+    "French Red Cross",
+    "IOM",
+    "Danish Refugee Council"
+  ],
+  "donors_experience": [
+    "EU",
+    "ECHO",
+    "GIZ",
+    "USAID",
+    "DFID",
+    "SIDA",
+    "DANIDA",
+    "AFD"
+  ],
+  "education": [
+    {
+      "degree": "Master's",
+      "field": "International Development",
+      "institution": ""
+    }
+  ],
+  "keywords_boost": [
+    "consortium",
+    "EU funding",
+    "ECHO",
+    "humanitarian",
+    "program management",
+    "East Africa",
+    "Ethiopia",
+    "multi-country",
+    "donor relations"
+  ]
+}
