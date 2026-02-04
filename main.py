@@ -243,14 +243,102 @@ def cmd_test_email():
         print("Failed to send test email. Check your SENDGRID_API_KEY and EMAIL_TO settings.")
 
 
+def cmd_apply(search_term: str = None):
+    """Generate cover letter for a specific job."""
+    print("=" * 60)
+    print("APPLY FOR JOB")
+    print("=" * 60)
+
+    matches = load_matches()
+    if not matches:
+        print("No matches found. Run 'match' first.")
+        return None
+
+    # List jobs if no search term
+    if not search_term:
+        print("\nAvailable matches (use job number or search term):\n")
+        for i, job in enumerate(matches[:20], 1):
+            salary_info = f" | {job.salary}" if job.salary else ""
+            print(f"  {i:2}. [{job.score:.0f}%] {job.title[:50]}")
+            print(f"      {job.organization[:40]} - {job.location[:30]}{salary_info}")
+            print()
+        print("Usage: python main.py apply <number or search term>")
+        return None
+
+    # Find job by number or search term
+    job = None
+    try:
+        idx = int(search_term) - 1
+        if 0 <= idx < len(matches):
+            job = matches[idx]
+    except ValueError:
+        # Search by title/org
+        search_lower = search_term.lower()
+        for j in matches:
+            if search_lower in j.title.lower() or search_lower in j.organization.lower():
+                job = j
+                break
+
+    if not job:
+        print(f"No job found matching '{search_term}'")
+        return None
+
+    print(f"\nGenerating cover letter for:")
+    print(f"  Title: {job.title}")
+    print(f"  Organization: {job.organization}")
+    print(f"  Location: {job.location}")
+    print(f"  Score: {job.score}%")
+    print(f"  URL: {job.url}")
+    print()
+
+    generator = CoverLetterGenerator()
+    path = generator.generate_and_save(job)
+
+    if path:
+        job.cover_letter_path = str(path)
+        save_matches(matches)
+        print(f"Cover letter saved to: {path}")
+        print(f"\nNext steps:")
+        print(f"  1. Review and customize: {path}")
+        print(f"  2. Apply at: {job.url}")
+    else:
+        print("Failed to generate cover letter. Check ANTHROPIC_API_KEY.")
+
+    return path
+
+
+def cmd_list():
+    """List all matched jobs."""
+    matches = load_matches()
+    if not matches:
+        print("No matches found. Run 'scrape' and 'match' first.")
+        return
+
+    print(f"\n{'#':>3}  {'Score':>5}  {'Title':<45}  {'Organization':<25}  {'Salary':<15}")
+    print("-" * 100)
+
+    for i, job in enumerate(matches, 1):
+        salary = job.salary or "Not listed"
+        has_letter = "*" if job.cover_letter_path else " "
+        print(f"{i:>3}{has_letter} {job.score:>5.0f}%  {job.title[:45]:<45}  {job.organization[:25]:<25}  {salary:<15}")
+
+    print(f"\n* = Cover letter generated")
+    print(f"Total: {len(matches)} matches")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Job Hunter - Automated job discovery system"
     )
     parser.add_argument(
         "command",
-        choices=["scrape", "match", "generate", "notify", "run", "test-email"],
+        choices=["scrape", "match", "generate", "notify", "run", "test-email", "apply", "list"],
         help="Command to run"
+    )
+    parser.add_argument(
+        "args",
+        nargs="*",
+        help="Additional arguments (e.g., job number for 'apply')"
     )
 
     args = parser.parse_args()
@@ -262,6 +350,8 @@ def main():
         "notify": cmd_notify,
         "run": cmd_run,
         "test-email": cmd_test_email,
+        "apply": lambda: cmd_apply(args.args[0] if args.args else None),
+        "list": cmd_list,
     }
 
     try:

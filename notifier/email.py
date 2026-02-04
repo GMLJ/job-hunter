@@ -20,6 +20,20 @@ class EmailNotifier:
         if config.SENDGRID_API_KEY:
             self.client = SendGridAPIClient(api_key=config.SENDGRID_API_KEY)
 
+    def _read_cover_letter(self, path: str) -> Optional[str]:
+        """Read cover letter content from file."""
+        try:
+            with open(path, 'r') as f:
+                content = f.read()
+                # Extract just the letter content (skip metadata header)
+                if '---' in content:
+                    parts = content.split('---')
+                    if len(parts) >= 2:
+                        return parts[1].strip()
+                return content
+        except Exception:
+            return None
+
     def _format_job_html(self, job: Job, include_cover_letter: bool = False) -> str:
         """Format a single job for HTML email."""
         score = job.score or 0
@@ -35,10 +49,27 @@ class EmailNotifier:
             badge = "MATCH"
             color = "#6b7280"  # Gray
 
-        # Cover letter section
-        cover_letter_link = ""
+        # Cover letter section - include full content inline
+        cover_letter_html = ""
         if include_cover_letter and job.cover_letter_path:
-            cover_letter_link = f'<br><a href="{job.cover_letter_path}" style="color: #3b82f6;">View Cover Letter Draft</a>'
+            letter_content = self._read_cover_letter(job.cover_letter_path)
+            if letter_content:
+                # Convert line breaks to HTML
+                letter_html = letter_content.replace('\n\n', '</p><p>').replace('\n', '<br>')
+                cover_letter_html = f'''
+                <div style="margin-top: 16px; padding: 16px; background: #f0fdf4; border-radius: 8px; border-left: 4px solid #22c55e;">
+                    <h4 style="margin: 0 0 12px 0; color: #166534;">📝 Cover Letter Draft</h4>
+                    <div style="font-size: 14px; color: #374151; line-height: 1.6;">
+                        <p>{letter_html}</p>
+                    </div>
+                    <p style="margin: 12px 0 0 0; font-size: 12px; color: #6b7280; font-style: italic;">
+                        ⚠️ Review and customize before submitting
+                    </p>
+                </div>
+                '''
+
+        # Salary info
+        salary_html = f' | 💰 {job.salary}' if job.salary else ''
 
         return f"""
         <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 16px; background: #fff;">
@@ -56,13 +87,14 @@ class EmailNotifier:
             <p style="margin: 4px 0; color: #6b7280; font-size: 14px;">
                 📍 {job.location or 'Location not specified'}
                 {f' | ⏰ Deadline: {job.deadline}' if job.deadline else ''}
+                {salary_html}
             </p>
             <div style="margin-top: 12px;">
                 <a href="{job.url}" style="background: #3b82f6; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 14px;">
-                    View Job
+                    View Job & Apply
                 </a>
-                {cover_letter_link}
             </div>
+            {cover_letter_html}
         </div>
         """
 

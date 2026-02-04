@@ -182,6 +182,59 @@ class JobScorer:
         else:
             return 30
 
+    def _extract_salary(self, job: Job) -> Optional[float]:
+        """
+        Extract monthly salary in USD from job description.
+        Returns None if salary not found or not parseable.
+        """
+        text = f"{job.salary or ''} {job.description or ''}".lower()
+
+        # Common salary patterns
+        patterns = [
+            # USD amounts: $5,000, $5000, USD 5000, 5000 USD
+            r'(?:\$|usd)\s*([\d,]+(?:\.\d{2})?)\s*(?:per\s*month|/\s*month|monthly|p\.?m\.?)?',
+            r'([\d,]+(?:\.\d{2})?)\s*(?:usd|dollars?)\s*(?:per\s*month|/\s*month|monthly|p\.?m\.?)?',
+            # EUR amounts (convert roughly)
+            r'(?:€|eur)\s*([\d,]+(?:\.\d{2})?)\s*(?:per\s*month|/\s*month|monthly|p\.?m\.?)?',
+            r'([\d,]+(?:\.\d{2})?)\s*(?:eur|euros?)\s*(?:per\s*month|/\s*month|monthly|p\.?m\.?)?',
+            # Annual salary patterns
+            r'(?:\$|usd)\s*([\d,]+(?:\.\d{2})?)\s*(?:per\s*(?:year|annum)|/\s*(?:year|annum)|annually|p\.?a\.?)',
+            r'([\d,]+(?:\.\d{2})?)\s*(?:usd|dollars?)\s*(?:per\s*(?:year|annum)|/\s*(?:year|annum)|annually|p\.?a\.?)',
+        ]
+
+        for i, pattern in enumerate(patterns):
+            matches = re.findall(pattern, text)
+            for match in matches:
+                try:
+                    amount = float(match.replace(',', ''))
+
+                    # Convert EUR to USD (rough estimate)
+                    if i in [2, 3]:
+                        amount *= 1.1
+
+                    # Convert annual to monthly
+                    if i in [4, 5] or amount > 20000:
+                        amount /= 12
+
+                    # Sanity check: reasonable salary range
+                    if 500 <= amount <= 50000:
+                        return amount
+                except ValueError:
+                    continue
+
+        return None
+
+    def _meets_salary_requirement(self, job: Job) -> bool:
+        """Check if job meets minimum salary requirement."""
+        salary = self._extract_salary(job)
+
+        if salary is not None:
+            job.salary = f"~${salary:,.0f}/month"
+            return salary >= config.MIN_SALARY_USD
+
+        # No salary found - include unless configured to exclude
+        return not config.EXCLUDE_NO_SALARY
+
     def score_jobs(self, jobs: list[Job]) -> list[Job]:
         """Score multiple jobs and add scores to them."""
         for job in jobs:
@@ -189,6 +242,16 @@ class JobScorer:
         return jobs
 
     def filter_matches(self, jobs: list[Job], min_score: float = None) -> list[Job]:
-        """Filter jobs by minimum score."""
+        """Filter jobs by minimum score and salary."""
         min_score = min_score or config.SCORE_THRESHOLD_LOW
-        return [job for job in jobs if (job.score or 0) >= min_score]
+        filtered = []
+
+        for job in jobs:
+            if (job.score or 0) < min_score:
+                continue
+            if not self._meets_salary_requirement(job):
+                print(f"[Scorer] Excluded (salary < ${config.MIN_SALARY_USD}): {job.title}")
+                continue
+            filtered.append(job)
+
+        return filtered

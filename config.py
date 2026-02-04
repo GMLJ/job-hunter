@@ -57,3 +57,7 @@ LOCATION_SCORES = {
 # Claude API settings
 CLAUDE_MODEL = "claude-3-haiku-20240307"
 MAX_COVER_LETTERS_PER_RUN = 10
+
+# Salary filtering
+MIN_SALARY_USD = 3000  # Minimum monthly salary in USD
+EXCLUDE_NO_SALARY = False  # If True, exclude jobs without salary info
