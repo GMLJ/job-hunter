@@ -426,6 +426,23 @@
       "cover_letter_path": null
     },
     {
+      "id": "f3aaf6b166bb",
+      "title": "Data Platforms Manager",
+      "organization": "International Rescue Committee",
+      "location": "Kenya, Pakistan, Uganda",
+      "description": "Countries: Kenya, Pakistan, Uganda\nOrganization: International Rescue Committee\nClosing date: 6 Apr 2026\nBackground:\nTechnology and Operations support the organization\u2019s work by providing reliable and scalable solutions for offices around the world.\nThe Data Team at IRC is responsible for the design, delivery and governance of data technology and data programs at the IRC. Our team is committed to high-impact results by encouraging relationships across the organization, driving continuous improvement, and delivering value through the implementation of high-quality, strategic data programs.\nJob Overview/Summary:\nThe IT-Data team is seeking a Data Platforms Manager to support the Data team in administering, governing, and optimizing the enterprise data platforms used across the organization\u2014including Databricks & Unity Catalog and Power BI.\nThis role ensures that data platforms are secure, well-governed, properly administered, and aligned with Data Team related standards, processes and guidelines.\nResponsibilities:\nAdminister and manage configurations across Data Platforms (including Azure Purview, Databricks and Power BI)\nImplement and maintain role-based access controls (RBAC), workspace administration, group-based identity management, and platform-level privileged roles.\nManage platform auditing, monitoring, compliance, and license governance.\nSupport in implementing Enterprise Data Cataloging processes and practices such as column definition, data classification and ownership identification.\nAdminister and manage support tickets such as license provisioning, grating access, and issue troubleshooting.\nTrain data owners and stewards on new guidelines, standards and processes.\nDocument and maintain privileged roles across data platforms (such as Fabric Admin, Databricks Account Admin, Domain Admin, etc.).\nAlign data platform configurations and processes with internal policies and compliance requirements such as Global Information Security and Data Protection policies.\nDevelop and maintain usage / audit logs monitoring tools.\nWork closely with Data Team leads, Data Engineering teams, Business Analysts, and other IT members to ensure platform governance and business alignment.\nSupport data owners and custodians in implementing proper data control, classification, and access processes.\nMaintain clear documentation, workflows, and platform administration guidelines.\nSupport in evaluating data platforms\u2019 enhancements and new capabilities/features.\nMonitor data platforms performance such as Power BI premium capacities.\nJob Requirements:\nEducation:\nBachelor's degree in computer science, Information Management, or related experience.\nWork Experience:\n2 years of experience administering data platforms such as Power BI, Databricks / Unity Catalog.\n5 years of experience in one of the key data functions such as Data Engineering and Data Analytics.\nStrong understanding of data classification, protection, tagging, and cataloging.\nExcellent communication and interpersonal skills, with the ability to effectively engage with diverse stakeholders.\nNon-profit and international humanitarian aid experience is a plus.\nDemonstrated Skills and Competencies:\nDemonstrated ability to maintain positive, collaborative, productive relationships with diverse key stakeholders across the organization.\nWell-developed analytical and problem-solving skills, with an ability to devise creative solutions to complex problems and issues.\nStrong communications skills with the ability to listen and converse effectively with technical and non-technical colleagues on reporting analysis and insights.\nSound judgment in maintaining confidentiality key internal business information.\nPassion for and commitment to the IRC\u2019s mission.\nStrong analytical skills with the ability to collect, organize, analyze, and disseminate significant amounts of information with attention to detail and accuracy.\nExcellent technical skills, including strong experience with SQL, complex relational databases, BI tools, and data visualization.\nWorking Environment:\nStandard office work environment\nAbility to travel as required\nThe Data Platforms Manager will collaborate closely with team members based in the United States and must maintain a minimum of 3 hours of overlapping work time with the New York time zone.\n**______________________________________________________________**The IRC and IRC workers must adhere to the values and principles outlined in\nIRC Way - Standards for Professional Conduct\n. These are Integrity, Service, and Accountability. In accordance with these values, the IRC operates and enforces policies on Beneficiary Protection from Exploitation and Abuse, Child Safeguarding, Anti Workplace Harassment, Fiscal Integrity, and Anti-Retaliation.\nIRC et les employ\u00e9s de IRC doivent adh\u00e9rer aux valeurs et principes contenus dans le IRC WAY (normes de conduite professionnelle). Ce sont l\u2019Int\u00e9grit\u00e9, le Service, et la Responsabilit\u00e9. En conformit\u00e9 avec ces valeurs, IRC op\u00e8re e",
+      "url": "https://reliefweb.int/job/4199151/data-platforms-manager",
+      "source": "reliefweb",
+      "posted_date": "Thu, 05 Mar 2026 21:21:23 +0000",
+      "deadline": "6 Apr 2026",
+      "salary": null,
+      "job_type": null,
+      "experience_required": null,
+      "scraped_at": "2026-03-06T02:09:03.324150",
+      "score": 70.0,
+      "cover_letter_path": null
+    },
+    {
       "id": "68d2611ffc2d",
       "title": "Uganda Quality Assurance Marketplace Consultants 2026",
       "organization": "Tiko",
@@ -2789,5 +2806,5 @@
       "cover_letter_path": null
     }
   ],
-  "last_updated": "2026-03-05T19:17:41.319699"
+  "last_updated": "2026-03-06T02:09:47.531309"
 }
