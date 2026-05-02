@@ -6631,6 +6631,23 @@
       "cover_letter_path": null
     },
     {
+      "id": "ad217ade8c51",
+      "title": "Officer, Software Training",
+      "organization": "International Medical Corps",
+      "location": "Kenya",
+      "description": "Country: Kenya\nOrganization: International Medical Corps\nClosing date: 1 Jun 2026\nProgram Description (Background)\nThe project, \u201cLast Mile Shield: Fortifying Health Supply Chains through Data-Driven Insights,\u201d aims to improve how medicines and medical supplies reach patients in rural areas of Kenya. It focuses on fixing the \u201clast mile\u201d problem\u2014where supplies often fail to reach health facilities\u2014leading to shortages, waste, and poor health outcomes.\nTo solve this, the project will deploy a digital system called PIMS across 1,200 health facilities. This system tracks medicines from supply to patient with high accuracy, reduces waste, and ensures the right supplies are available when needed.\nOverall, the project aims to strengthen the health system, improve service delivery, and benefit over 5.5 million people in Kenya over a 4-year period.\nJob Description\nJOB SUMMARY\nThe Software Trainer Officer is responsible for building the capacity of end users to effectively adopt and use LMIS software across program sites. Working under the supervision of the Training Lead, the role designs and delivers practical, contextually relevant training programs that equip health facility and warehouse staff with the skills needed to use the system confidently in their daily work.\nThe Trainer Officer works closely with implementation, technical, and operations teams to ensure training content stays aligned with system configuration and operational workflows. Beyond classroom delivery, the role supports on-the-job coaching, monitors post-training adoption, and contributes to the continuous improvement of training materials and approaches.\nThe ideal candidate combines strong adult learning and facilitation skills with a solid understanding of health information systems and a genuine commitment to building lasting user capacity in low-resource, field-based environments.\nTo perform this job successfully, an individual must be able to perform each essential function with or without reasonable accommodation.\nMAIN TASKS AND RESPONSIBILITIES\nTraining Planning and Preparation\n\u2022 Develop and maintain site-specific training plans aligned with implementation timelines and go-live schedules.\n\u2022 Assess the digital literacy and system knowledge levels of end users prior to training and adapt content accordingly.\n\u2022 Prepare and regularly update training materials including user guides, job aids, quick reference cards, and exercise datasets.\n\u2022 Coordinate training logistics, including venue, participants, devices, and system access, in collaboration with site and implementation teams.\n\u2022 Confirm that training environments (sandbox) are correctly set up and accessible before each session.\nTraining Delivery and On-the-Job Support\n\u2022 Facilitate engaging, hands-on training sessions for end users across health facilities, warehouses, and partner sites.\n\u2022 Tailor delivery methods and pace to the needs of each group, including mixed-literacy and multilingual participants.\n\u2022 Provide on-the-job coaching and floor support during go-live and early system use to reinforce training and build user confidence.\n\u2022 Conduct refresher and remedial training sessions for users who require additional support.\n\u2022 Respond to training-related queries from site staff during and after rollout.\nAdoption Monitoring and Follow-Up\n\u2022 Monitor end user adoption and system usage patterns during and after go-live, using observed behavior and system data.\n\u2022 Identify users or sites at risk of low adoption and proactively implement targeted follow-up support.\n\u2022 Coordinate with implementation teams and clients to track key training and adoption indicators.\n\u2022 Conduct post-training follow-up visits or remote check-ins to assess whether users are applying system skills correctly.\n\u2022 Escalate persistent adoption barriers or systemic issues to the Implementation Lead with recommendations.\nDocumentation and Continuous Improvement\n\u2022 Maintain accurate records of training sessions, attendance, and assessment outcomes.\n\u2022 Document user feedback, recurring questions, and gaps observed during training and field support.\n\u2022 Contribute to the review and improvement of training materials based on field experience and system updates.\n\u2022 Prepare training completion reports and handover notes at the end of each rollout phase.\n\u2022 Share lessons learned and practical insights to strengthen future training design and delivery.\nPerform other duties as assigned. The duties and responsibilities listed in this document are representative of the nature and level of work assigned and not necessarily all inclusive.\nJob Requirements\nMINIMUM QUALIFICATIONS\n\u2022 Bachelor's degree in pharmacy, health informatics, information systems, education, or related field.\n\u2022 Minimum of 3 years of experience delivering end-user training on digital health systems, information systems, or supply chain management software, preferably in healthcare or NGO settings.\n\u2022 Experience supporting system go-live activities and providing on-the-job user coac",
+      "url": "https://reliefweb.int/job/4210262/officer-software-training",
+      "source": "reliefweb",
+      "posted_date": "Fri, 01 May 2026 23:00:26 +0000",
+      "deadline": "1 Jun 2026",
+      "salary": null,
+      "job_type": null,
+      "experience_required": null,
+      "scraped_at": "2026-05-02T02:47:07.809471",
+      "score": 52.6,
+      "cover_letter_path": null
+    },
+    {
       "id": "26c9f913861d",
       "title": "Multimedia and Communications Support - Consultancy",
       "organization": "Danish Refugee Council",
@@ -7668,5 +7685,5 @@
       "cover_letter_path": null
     }
   ],
-  "last_updated": "2026-05-01T19:15:00.702449"
+  "last_updated": "2026-05-02T02:48:09.923469"
 }
