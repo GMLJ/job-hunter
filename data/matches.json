@@ -9946,6 +9946,23 @@
       "cover_letter_path": null
     },
     {
+      "id": "88b8614c2712",
+      "title": "Applied AI Engineer",
+      "organization": "International Rescue Committee",
+      "location": "Kenya, United Kingdom of Great Britain and Northern Ireland, United States of America",
+      "description": "Countries: Kenya, United Kingdom of Great Britain and Northern Ireland, United States of America\nOrganization: International Rescue Committee\nClosing date: 31 Aug 2026\nThe International Rescue Committee (IRC) responds to the world's worst humanitarian crises, helping to restore health, safety, education, economic wellbeing, and power to people devastated by conflict and disaster. Founded in 1933 at the call of Albert Einstein, the IRC is one of the world's largest international humanitarian non-governmental organizations (INGO), at work in more than 40 countries and 29 U.S. cities helping people to survive, reclaim control of their future and strengthen their communities. If you're a solutions-driven, passionate change-maker, come join us in positively impacting the lives of millions of people worldwide for a better future.\nJob Overview\nThe Applied AI Engineer (AAE) ensures AI systems work in the real-world contexts they are designed to serve. This works on designing (e.g., building flows and structured agents), deploying, adapting, testing, and validating AI systems in program environments to ensure they are accurate, usable, and effective in practice.\nThe AAE works directly with country teams, partners, and communities to configure AI systems for local contexts, including language, cultural nuance, and operational constraints. They are responsible for what goes into the system, how it behaves, and whether it delivers meaningful outcomes for end users, making key implementation decisions on system configuration, behavior and deployment approaches based on field conditions and user needs.\nOwning deployments across the full lifecycle, from initial configuration through iteration, evaluation and scale, the AAE translates real-world complexity and field insights into concrete system improvements, product decisions and deployment strategies.\nActing as the bridge between technical development and field implementation, the AAE surfaces failure modes early, strengthens system performance and informs the evolution of tools, workflows and infrastructure required for scalable deployment. The role also identifies patterns across implementations and translates them into reusable frameworks and best practices to improve speed, quality, and consistency across programs.\nBy enabling high-quality deployments at speed, this role ensures that IRC\u2019s investments in AI translate into tangible impact for the people we serve.\nMajor Responsibilities\n1. AI Deployment, Configuration & Context Adaptation\nLead end-to-end deployment of AI systems in program contexts, from initial scoping and configuration through live use\nAdapt systems to local environments, including language, cultural context, and operational realities\nConfigure prompts, workflows, and AI System behavior, including conversation flows, instructional logic and user experience Curate, structure, and validate domain-specific knowledge bases including system memory and personalization strategies to improve relevance and continuity\nEnsure systems reflect real-world humanitarian knowledge that may not exist in training data\nSupport multiple concurrent software deployments\n2. Testing, Validation & Continuous Improvement\nTest AI systems in real-world conditions to identify failure modes before scale\nApplies an agile, iterative approach, rapidly building, testing, and refining systems based on real-world feedback, while exercising strong judgment on when to iterate vs. escalate or rethink approach\nConduct safety validation and red teaming to identify risks, harms, and unintended consequences ensuring responsible and ethical AI deployment in vulnerable contexts\nTroubleshoot technical and operational issues, including in low-connectivity environments\nCollect and interpret user and community feedback on usability, relevance, and performance\nEscalate systemic issues and collaborate with engineering teams on fixes and improvements\nDefine and track success metrics to evaluate system performance, user engagement and real-world impact over time\n3. Partnership & Cross-functional Collaboration\nTrain field teams on deploying systems and managing structured handovers to ensure adoption and sustained use\nDocument deployment processes, configurations, and lessons learned to build institutional knowledge and support replication\nWork closely with AI engineers and technical teams to translate field insights into system improvements\nCollaborate with program teams and partners to align deployments with priorities\nAct as the primary interface between field teams and technical development during deployment\nSupport scoping and technical input for proposals and cost recovery opportunities where deployment capacity is a factor\nEnsure solutions are integrated into workflows in ways that are practical, adopted, and sustained\nContribute to shared learning across deployments to improve future implementation\nIdentify patterns across deployments and translate them into reusable frameworks and best practices",
+      "url": "https://reliefweb.int/job/4214927/applied-ai-engineer",
+      "source": "reliefweb",
+      "posted_date": "Thu, 04 Jun 2026 19:56:40 +0000",
+      "deadline": "31 Aug 2026",
+      "salary": null,
+      "job_type": null,
+      "experience_required": null,
+      "scraped_at": "2026-06-04T20:06:40.917174",
+      "score": 50.9,
+      "cover_letter_path": null
+    },
+    {
       "id": "ae21572ab754",
       "title": "RFP: Implementation of the gender and environmental and social management system (GESS) for the TWENDE project.",
       "organization": "International Union for Conservation of Nature",
@@ -10388,5 +10405,5 @@
       "cover_letter_path": null
     }
   ],
-  "last_updated": "2026-06-04T15:18:05.256509"
+  "last_updated": "2026-06-04T20:07:42.223477"
 }
