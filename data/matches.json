@@ -3146,6 +3146,23 @@
       "cover_letter_path": null
     },
     {
+      "id": "59090d6f5652",
+      "title": "Senior Systems Developer",
+      "organization": "Christian Aid",
+      "location": "Jordan, Kenya, Nigeria",
+      "description": "Countries: Jordan, Kenya, Nigeria\nOrganization: Christian Aid\nClosing date: 30 Jun 2026\nSenior Systems Developer\nPermanent, Full time, Hybrid Working (minimum of 2 days per week in the office)\nLocation: This role can be based in any of our UK offices - Cardiff, Edinburgh, London, Warrington, or in one of these global hubs, Abuja - Nigeria, Amman - Jordan, Nairobi - Kenya\nSalary: \u00a345,732 per year for Cardiff, Edinburgh, Warrington. \u00a350,614 per year for London, \u00a329,274.04 for Abuja, JOD38,300 for Amman, \u00a334,788.67 for Nairobi.\nAbout us\nChristian Aid exists to create a world where everyone can live a full life, free from poverty. We are a global movement of people, churches and local organisations who passionately champion dignity, equality and justice worldwide. We are the changemakers, the peacemakers, the mighty of heart.\nWe\u2019re committed to building a diverse and inclusive workplace, and recognise the value this brings in forming strong, creative and high performing teams. We welcome applications from all sections of the community, and from those with experience from outside of the voluntary sector. And no, you don\u2019t have to be Christian to work here \u2013 we encourage people of all faiths and none to apply. We just ask that everyone lives out our values of dignity, equality, justice and love. We value a good work-life balance, so we\u2019re open to part-time and flexible working. We also offer hybrid working for our office-based colleagues.\nAbout the role\nIn the role of\nSenior Systems Developer\n, you\u2019ll be a senior, hands\u2011on contributor to the design and delivery of solutions, with a particular focus on our Microsoft Dynamics platform, helping ensure it delivers meaningful outcomes across the organisation. You\u2019ll act as a technical authority within the ICT team, owning complex development work, influencing technical direction, and upholding high standards of quality, security, and maintainability.\nWorking closely with colleagues across ICT and CRM, you'll solve complex technical challenges, champion best practice, and ensure the delivery of high-quality features that align with organisational goals. You'll build strong, open relationships with internal stakeholders and external suppliers, protect the team's focus, and introduce new technologies where they can add long-term value. As a senior practitioner in the Dynamics ecosystem, you'll provide trusted advice on platform capabilities, integration opportunities, and strategic enhancements that help the organisation get the most from its CRM systems.\nSome of the main areas of responsibility for the\nSenior Systems Developer\ninclude:\nDesign, develop and maintain application and data integrations across Christian Aid\u2019s systems using Microsoft technologies (including .NET, C#, Power Automate, SSIS and APIs).\nMaintain and improve Christian Aid\u2019s application and integration architecture, identifying opportunities to automate processes and improve reliability, performance and data quality.\nEstablish and apply standardised best practice for system and data integration across applications, using critical thinking to improve existing solutions.\nMonitor integration processes, handling errors and job failures, and implement preventative improvements.\nInvestigate system and data related issues, undertake root cause analysis, and implement mitigating actions to prevent recurrence.\nWork collaboratively with internal teams and third party suppliers to resolve issues and deliver high quality integration outcomes.\nProvide technical advice and guidance to colleagues and project teams, contributing specialist expertise to system design and delivery.\nProduce and maintain appropriate technical documentation and support handover into live service when required.\nAbout you\nYou\u2019ll bring substantial hands\u2011on experience designing and delivering solutions using Microsoft Dynamics and the Power Platform, supported by a relevant professional qualification. You have strong expertise in Dynamics customisation and extension, data modelling, integrations and APIs, and SQL Server, alongside solid experience with modern software engineering practices such as source control, automated testing, code review, and CI/CD.\nYou\u2019re comfortable taking ownership of complex work in resource\u2011constrained environments, improving quality and reliability, and working directly with users to translate real needs into effective solutions. You understand the long\u2011term impact of technical decisions and are able to balance pragmatism with sound design.\nIdeally, you\u2019ll also bring Microsoft certifications, experience working in a not\u2011for\u2011profit or mission\u2011driven context, and familiarity with Azure or similar cloud platforms.\nAbove all, you\u2019re a collaborative and credible senior developer who communicates clearly, works effectively with suppliers and non\u2011technical colleagues, and influences technical decisions through expertise and judgment. You value learning and contribute positively to a culture of continuous improvement.\nPl",
+      "url": "https://reliefweb.int/job/4216665/senior-systems-developer",
+      "source": "reliefweb",
+      "posted_date": "Wed, 17 Jun 2026 13:28:28 +0000",
+      "deadline": "30 Jun 2026",
+      "salary": null,
+      "job_type": null,
+      "experience_required": null,
+      "scraped_at": "2026-06-17T15:32:56.121131",
+      "score": 65.5,
+      "cover_letter_path": null
+    },
+    {
       "id": "7ace5aff9439",
       "title": "SNR NUTRITION OFFICER \u2013 NATIONAL POSITION",
       "organization": "IsraAID",
@@ -11459,5 +11476,5 @@
       "cover_letter_path": null
     }
   ],
-  "last_updated": "2026-06-17T10:59:06.640595"
+  "last_updated": "2026-06-17T15:33:56.900761"
 }
