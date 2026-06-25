@@ -10235,6 +10235,23 @@
       "cover_letter_path": null
     },
     {
+      "id": "ca8ae7d37ec4",
+      "title": "Director, AI Security",
+      "organization": "International Rescue Committee",
+      "location": "Kenya, United Kingdom of Great Britain and Northern Ireland, United States of America",
+      "description": "Countries: Kenya, United Kingdom of Great Britain and Northern Ireland, United States of America\nOrganization: International Rescue Committee\nClosing date: 31 Aug 2026\nJob Role Overview\nThe Director, AI Security is a newly created senior leadership role responsible for building, leading, and continuously maturing the IRC\u2019s AI security function. As AI agents and AI-powered tools proliferate across the business, this role sets the organizational direction for securing AI systems \u2014 from initial design through production deployment, ongoing governance, and team development.\nThis is a high-visibility, cross-functional leadership role that sits at the intersection of security engineering, risk management, and emerging technology. The Director, AI Security will advise the CISO, build and develop a dedicated AI security team, own the function\u2019s budget, and partner with Security Operations, Identity & Access Management, Governance Risk & Compliance, and business unit technology teams to ensure AI adoption is secure by design.\nKey Responsibilities\nAI Security Strategy & Governance\nDefine, own, and continuously mature the IRC's AI security strategy and program roadmap\nEstablish and maintain the organization-wide AI agent registry \u2014 a governed inventory of all AI agents in production, including their purpose, permissions, data access, and accountable owners\nDevelop and publish secure-by-default standards, frameworks, and reference architectures for internal AI agent development\nCreate and enforce AI security policies covering agent development, deployment, monitoring, and decommissioning\nReport AI security risk posture, program progress, and emerging threats to the CISO and senior leadership on a regular cadence; serve as a key member of the security leadership team\nSecurity Risk Assessment & Review\nCoordinate and perform GIS security reviews within the organization's AI governance framework, ensuring AI platforms, agents, and use cases receive appropriate security assessment and approval prior to production deployment.\nPartner with AI Governance, Privacy, Legal, and Technology stakeholders to support the AI intake, assessment, and stage-gating process, providing security expertise, control requirements, and risk-based recommendations throughout the solution lifecycle.\nPerform security risk assessments and classify AI platforms, agents, and use cases according to the approved risk-tiering model, applying review, control, and approval requirements proportionate to risk.\nConduct a structured controls assessment for every use case, validating that mandatory security baseline requirements are met \u2014 including least-privilege access, credential management, audit logging, data minimization, human-in-the-loop checkpoints, and kill switch capability\nIssue formal, documented approval decisions for every reviewed use case \u2014 Approved, Approved with Conditions, or Not Approved \u2014 with a full written rationale recorded in the AI agent registry to maintain an auditable approval history\nManage defined SLA timelines for all reviews (Tier 1: 5 business days, Tier 2: 10 business days, Tier 3: 15 business days) to ensure security review does not become a blocker to business unit velocity\nConduct periodic reassessments of all active agents on a risk-appropriate cycle \u2014 annually for Tier 1, semi-annually for Tier 2, and quarterly for Tier 3 \u2014 and trigger immediate out-of-cycle reviews whenever a material change is made to an agent's capabilities, data access, or toolset\nMonitor the evolving AI threat landscape on an ongoing basis and proactively assess whether newly discovered attack techniques \u2014 including new prompt injection methods, jailbreaks, or model-specific vulnerabilities \u2014 expose any currently approved use cases, initiating remediation where required\nLead post-incident reassessments for any active agent involved in a security incident, updating the agent's approval status and controls requirements based on findings\nEvaluate third-party AI tools, models, and platforms for security risk prior to organizational adoption\nMaintain a risk register specific to AI systems, tracking identified vulnerabilities, mitigations, and residual risk\nReport aggregate review metrics to the CISO on a regular cadence \u2014 including number of use cases reviewed, approval rates by tier, common findings, and AI risk distribution across business units \u2014 providing organizational visibility into the AI risk posture\nTechnical Oversight & Controls\nDefine technical security requirements for AI agents including least-privilege access, prompt injection defenses, output filtering, audit logging, and human-in-the-loop controls\nBuild, lead, and develop a team of AI security engineers responsible for implementing and validating controls across the AI agent development lifecycle\nOwn and resource red team and adversarial testing programs targeting AI systems, ensuring adequate coverage through the AI Red Team Engineer and contracted specialists\nDrive adoption of secure cod",
+      "url": "https://reliefweb.int/job/4218015/director-ai-security",
+      "source": "reliefweb",
+      "posted_date": "Thu, 25 Jun 2026 20:00:23 +0000",
+      "deadline": "31 Aug 2026",
+      "salary": null,
+      "job_type": null,
+      "experience_required": null,
+      "scraped_at": "2026-06-25T20:01:05.377421",
+      "score": 53.0,
+      "cover_letter_path": null
+    },
+    {
       "id": "9bb6ccbbd0ea",
       "title": "Expression of Interest: Mandera Region partnerships in Economic recovery, WASH, Protection and HDP",
       "organization": "Danish Refugee Council",
@@ -12156,5 +12173,5 @@
       "cover_letter_path": null
     }
   ],
-  "last_updated": "2026-06-25T14:35:47.626462"
+  "last_updated": "2026-06-25T20:02:06.738790"
 }
